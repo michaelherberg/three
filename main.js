@@ -60,11 +60,11 @@ for (let i = 0; i < 4; i++) {
   const fileName = Math.abs(4 - i);
   const textureMaterials = [
     new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load(`./0/${fileName}.jpg`),
+      map: new THREE.TextureLoader().load(`a/${fileName}.jpg`),
       color: 0xffffff,
     }),
     new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load(`./1/${fileName}.jpg`),
+      map: new THREE.TextureLoader().load(`b/${fileName}.jpg`),
       color: 0xffffff,
     }),
     new THREE.MeshStandardMaterial({
@@ -74,11 +74,11 @@ for (let i = 0; i < 4; i++) {
       color: 0xffffff,
     }),
     new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load(`./2/${fileName}.jpg`),
+      map: new THREE.TextureLoader().load(`c/${fileName}.jpg`),
       color: 0xffffff,
     }),
     new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load(`./3/${fileName}.jpg`),
+      map: new THREE.TextureLoader().load(`d/${fileName}.jpg`),
       color: 0xffffff,
     }),
   ];
