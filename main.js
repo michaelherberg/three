@@ -151,6 +151,9 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key === "ArrowDown") {
     colorCube(cubes[selectedCubeIndex], white);
     selectedCubeIndex = (selectedCubeIndex - 1) % cubes.length;
+    if (selectedCubeIndex < 0) {
+      selectedCubeIndex = cubes.length - 1;
+    }
     colorCube(cubes[selectedCubeIndex], gold);
   } else if (e.key === "ArrowLeft") {
     const rotationTween = new TWEEN.Tween(cubes[selectedCubeIndex].rotation)
@@ -184,4 +187,18 @@ document.querySelector(".reset-btn").addEventListener("click", () => {
       .easing(TWEEN.Easing.Quadratic.Out)
       .start();
   }
+});
+
+document.querySelector(".select-outfits").addEventListener("change", (e) => {
+  let selectedOutfit = parseInt(e.target.value);
+  if (selectedOutfit >= 0) {
+    let rotations = [0, Math.PI / 2, Math.PI, (3 * Math.PI) / 2];
+    for (let i = 0; i < cubes.length; i++) {
+      const rotationTween = new TWEEN.Tween(cubes[i].rotation)
+        .to({ y: rotations[selectedOutfit] }, 400)
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .start();
+    }
+  }
+  document.querySelector(".select-outfits").value = -1;
 });

@@ -22,18 +22,33 @@
 			font-size: 50px;
 		}
 
-		.reset-btn {
+		.reset-btn,
+		.select-outfits {
 			position: absolute;
-			top: 100px;
-			right: 20px;
 			text-transform: uppercase;
 			text-align: center;
-			padding: 10px 20px;
-			font-size: 20px;
-			background: none;
-			border: none;
 			cursor: pointer;
 			color: darkgray;
+			border: none;
+			background: none;
+		}
+
+		.reset-btn:focus,
+		.select-outfits:focus {
+			outline: none;
+		}
+
+		.reset-btn {
+			top: 100px;
+			right: 20px;
+			padding: 10px 20px;
+			font-size: 20px;
+		}
+
+		.select-outfits {
+			bottom: 50px;
+			right: 20px;
+			font-size: 20px;
 		}
 	</style>
 </head>
@@ -41,6 +56,14 @@
 <body>
 	<div class="header">Sound Of Clothing</div>
 	<button class="reset-btn">Reset</button>
+	<!-- dropdown-->
+	<select class="select-outfits" name="outfits">
+		<option value="-1" disabled selected>Select Outfit</option>
+		<option value="0">Outfit 1</option>
+		<option value="1">Outfit 2</option>
+		<option value="2">Outfit 3</option>
+		<option value="3">Outfit 4</option>
+	</select>
 	<script type="module" src="main.js"></script>
 </body>
 
