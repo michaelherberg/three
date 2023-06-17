@@ -17,7 +17,7 @@ env:
   DEPLOYMENT_FOLDER: dist
 
 jobs:
-# Please do not rename this job
+  # Please do not rename this job
   build-project:
     name: build three
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -36,9 +36,12 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
+        run: npm ci
+
+      - name: Vite build
         run: npx vite build
 
-# Please do not touch the following action
+      # Please do not touch the following action
       - name: Store deployment content
         uses: ionos-deploy-now/artifact-action@v1
         with:
