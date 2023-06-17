@@ -11,17 +11,6 @@ if (!WebGL.isWebGLAvailable()) {
   process.exit();
 }
 
-const headerHUD = document.createElement("div");
-headerHUD.style.position = "absolute";
-headerHUD.style.top = "0";
-headerHUD.style.left = "0";
-headerHUD.style.width = "100%";
-headerHUD.textContent = "Sound Of Clothing".toUpperCase();
-headerHUD.style.textAlign = "center";
-headerHUD.style.paddingTop = "30px";
-headerHUD.style.fontSize = "50px";
-document.body.appendChild(headerHUD);
-
 /* const hudElement = document.createElement("div");
 hudElement.style.position = "absolute";
 hudElement.style.top = "0";
@@ -186,4 +175,13 @@ window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+document.querySelector(".reset-btn").addEventListener("click", () => {
+  for (let cube of cubes) {
+    const rotationTween = new TWEEN.Tween(cube.rotation)
+      .to({ y: 0 }, 400)
+      .easing(TWEEN.Easing.Quadratic.Out)
+      .start();
+  }
 });
