@@ -114,9 +114,7 @@ function onPointerMove(event) {
   raycaster.setFromCamera(pointer, camera);
   const intersects = raycaster.intersectObjects(scene.children);
   if (intersects.length > 0) {
-    const intersect = intersects[0];
     document.body.style.cursor = "pointer";
-    // colorCube(intersect.object, 0xff0000);
   } else {
     document.body.style.cursor = "default";
   }
@@ -141,14 +139,20 @@ animate();
 
 window.addEventListener("pointermove", onPointerMove);
 
-/* window.addEventListener("click", (event) => {
+window.addEventListener("click", (event) => {
   raycaster.setFromCamera(pointer, camera);
   const intersects = raycaster.intersectObjects(scene.children);
   if (intersects.length > 0) {
     const intersect = intersects[0];
-    colorCube(intersect.object, gold);
+    for (let i = 0; i < cubes.length; i++) {
+      if (cubes[i] === intersect.object) {
+        colorCube(cubes[selectedCubeIndex], white);
+        selectedCubeIndex = i;
+        colorCube(cubes[selectedCubeIndex], gold);
+      }
+    }
   }
-}); */
+});
 
 window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp") {
