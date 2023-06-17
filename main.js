@@ -122,8 +122,8 @@ function onPointerMove(event) {
   }
   pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
   pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
-  hudElement.style.top = `${event.clientY}px`;
-  hudElement.style.left = `${event.clientX + 20}px`;
+  /* hudElement.style.top = `${event.clientY}px`;
+  hudElement.style.left = `${event.clientX + 20}px`; */
 }
 
 function animate() {
